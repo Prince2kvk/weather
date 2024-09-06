@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>youtube</title>
+</head>
+<body>
+    <div id="link-container"></div>
+    <button id="start-button">Start</button>
+     <script>
+             const links = ['(https://youtube.com/shorts/3IsSlaowHBE?si=P4rv4PxNmQbj2vcr)',
+                           '(https://youtube.com/shorts/lIMKkDs3Wwo?si=MaQ4EK9B2TxCiK_o)',
+  // Add more links here
+];
+
+// Get the container and button elements
+const linkContainer = document.getElementById('link-container');
+const startButton = document.getElementById('start-button');
+
+// Add an event listener to the button
+startButton.addEventListener('click', () => {
+  // Loop through the links and open them one by one
+  links.forEach((link, index) => {
+    setTimeout(() => {
+      // Create a new iframe element for each link
+      const iframe = document.createElement('iframe');
+      iframe.src = link;
+      iframe.width = '10%';
+      iframe.height = '500';
+      linkContainer.appendChild(iframe);
+    }, index * 5000); // Open next link after 5 seconds
+  });
+});
+
+     </script>
+
+</body>
+</html>
